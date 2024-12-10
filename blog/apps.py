@@ -1,4 +1,5 @@
 from django.db import models
+from .models import Post  # Importing models here can cause this issue
 
 
 class Post(models.Model):
