@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 # Временный список постов
 posts = [
     {
@@ -28,14 +27,14 @@ posts = [
 
 
 def index(request):
-    return render(request, 'blog/index.html', {'posts': posts})
+    return render(request, 'html/index.html', {'posts': posts})
 
 
 def post_detail(request, id):
     post = next((p for p in posts if p['id'] == id), None)
-    return render(request, 'blog/detail.html', {'post': post})
+    return render(request, 'html/detail.html', {'post': post})
 
 
 def category_posts(request, category_slug):
-    return render(request, 'blog/category.html',
-                  {'category_slug': category_slug})
+    return render(request, 'html/category.html', {'category_slug': category_slug})
+
