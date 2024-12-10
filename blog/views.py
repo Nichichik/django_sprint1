@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from .models import Post
 
-# Временные данные для публикаций
+
 posts = [
     {
         'id': 0,
@@ -39,15 +38,16 @@ posts = [
     },
 ]
 
-# Главная страница
+
 def index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
-# Страница публикации
+
 def post_detail(request, id):
     post = next(post for post in posts if post['id'] == id)
     return render(request, 'blog/detail.html', {'post': post})
 
-# Страница категории
+
 def category_posts(request, category_slug):
-    return render(request, 'blog/category.html', {'category_slug': category_slug})
+    return render(request, 'blog/category.html',
+                  {'category_slug': category_slug})
