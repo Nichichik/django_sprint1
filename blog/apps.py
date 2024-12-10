@@ -1,11 +1,6 @@
-from django.db import models
-from .models import Post  # Importing models here can cause this issue
+from django.apps import AppConfig
 
 
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
+class BlogConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'blog'
